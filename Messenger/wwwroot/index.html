@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Messenger</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <div>
+          <h1>Messenger</h1>
+          <p class="subtitle">Многопользовательский чат с авторизацией</p>
+        </div>
+        <div class="status" id="status">Connecting…</div>
+      </header>
+
+      <main class="panel">
+        <section class="auth-screen" id="auth-screen">
+          <div class="auth single" id="auth-panel">
+            <div class="auth-card" id="login-panel">
+            <h2>Вход</h2>
+            <form id="login-form">
+              <label>
+                Логин
+                <input id="login-name" type="text" autocomplete="username" />
+              </label>
+              <label>
+                Пароль
+                <input id="login-password" type="password" autocomplete="current-password" />
+              </label>
+              <button type="submit">Войти</button>
+            </form>
+            <button class="link-button" id="show-register" type="button">
+              Нет аккаунта? Регистрация
+            </button>
+          </div>
+            <div class="auth-card hidden" id="register-panel">
+            <h2>Регистрация</h2>
+            <form id="register-form">
+              <label>
+                Логин
+                <input id="register-name" type="text" autocomplete="username" />
+              </label>
+              <label>
+                Пароль
+                <input id="register-password" type="password" autocomplete="new-password" />
+              </label>
+              <button type="submit">Создать аккаунт</button>
+            </form>
+            <button class="link-button" id="hide-register" type="button">
+              Уже есть аккаунт? Войти
+            </button>
+          </div>
+          </div>
+        </section>
+
+        <section class="workspace hidden" id="workspace">
+          <aside class="sidebar">
+            <div class="profile">
+              <div>
+                <div class="label">Пользователь</div>
+                <div id="current-user" class="user-name">—</div>
+              </div>
+              <button id="logout">Выйти</button>
+            </div>
+
+            <div class="chat-create">
+              <h3>Поиск пользователей</h3>
+              <div class="search-row">
+                <input id="user-search" type="text" placeholder="Введите логин пользователя" />
+                <button id="search-user" type="button">Найти</button>
+              </div>
+              <ul id="search-results" class="search-results"></ul>
+            </div>
+
+            <div class="chat-list">
+              <h3>Ваши чаты</h3>
+              <ul id="chat-items"></ul>
+            </div>
+          </aside>
+
+        </section>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@microsoft/signalr@8.0.7/dist/browser/signalr.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
